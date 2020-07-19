@@ -31,7 +31,7 @@ build-image:
 	docker build -t $(IMAGE-NAME) .
 
 containers:
-	docker run -d -t --rm -v $(WORKING-DIR):/usr/src/myapp --name $(CONTAINER-NAME-1) $(IMAGE-NAME)
+	docker run -p 9876:9876/udp -d -t --rm -v $(WORKING-DIR):/usr/src/myapp --name $(CONTAINER-NAME-1) $(IMAGE-NAME)
 	docker run -d -t --rm -v $(WORKING-DIR):/usr/src/myapp --name $(CONTAINER-NAME-2) $(IMAGE-NAME)
 
 run-1: ip-1
